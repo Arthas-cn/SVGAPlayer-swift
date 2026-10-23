@@ -1,0 +1,5 @@
+真实样本，未重新编码或伪造：
+1.svga、12.svga、133.svga：本仓库 demo/resoureces。
+rose_1.5.0.svga、matteBitmap_1.x.svga、matteRect.svga、audio_biling.svga：
+SVGAPlayer-Lite/SVGAPlayerLite/Samples（只读复制）。
+分别覆盖 zlib/protobuf、ZIP/movie.binary、ZIP/movie.spec、矢量遮罩、音频。

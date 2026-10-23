@@ -1,0 +1,9 @@
+Source: https://github.com/svga/SVGA-Format/blob/a2e311655c6b6698cad1922bec466cb43369ac4d/proto/svga.proto
+Verified against SVGAPlayer-Lite/Source/pbobjc/Svga.pbobjc.h and .m.
+Generator: protoc 36.2, protoc-gen-swift 1.39.0; internal visibility.
+
+Regenerate from the package directory after placing these exact tool versions on PATH:
+protoc --proto_path=Schema --swift_out=Sources/SVGAPlayer_swift Schema/svga.proto
+
+Do not hand-edit svga.pb.swift. The generated code uses the official SwiftProtobuf
+SPM product pinned in Package.swift; no Objective-C protobuf runtime is linked.
