@@ -102,6 +102,8 @@ public enum SVGAFrameStage: String, Sendable, Codable {
     case presentationSkipped
     /// 宿主没有可用 drawable，包括未挂载、隐藏或零尺寸。
     case drawableUnavailable
+    /// 平台失去 GPU 提交许可或命令被 notPermitted 拒绝；恢复活动状态后可重绘，不算 GPU 完成。
+    case gpuUnavailable
     /// 新请求替换尚未提交的旧请求。
     case coalesced
     /// 过期准备、GPU 完成或帧结果被丢弃。
@@ -162,6 +164,8 @@ public struct SVGAPlaybackDiagnostics: Sendable, Codable {
     public internal(set) var discardedResults = 0
     /// 没有取得可用 drawable 的次数。
     public internal(set) var drawableFailures = 0
+    /// 后台提交门关闭或系统 notPermitted 拒绝的次数；保留独立证据，不升级为影片失败。
+    public internal(set) var gpuUnavailableSkips = 0
     /// 最近帧提交的 CPU 动态输入字节；尚未提交时为 nil。
     public internal(set) var latestCPUInputBytes: Int?
     /// 当前 GPU 输入纹理和几何的留存计费；不是进程 RSS。

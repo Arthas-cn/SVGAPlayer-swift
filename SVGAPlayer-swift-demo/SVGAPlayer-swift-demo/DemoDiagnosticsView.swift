@@ -107,6 +107,7 @@ struct DemoDiagnosticsView: View {
                 row("过期呈现 / 零时间跳过", "\(value.stalePresentations) / \(value.zeroTimeSkips)")
                 row("请求合并 / 结果丢弃", "\(value.coalescedRequests) / \(value.discardedResults)")
                 row("drawable 不可用", String(value.drawableFailures))
+                row("GPU 权限暂不可用跳过", String(value.gpuUnavailableSkips))
             } else { Text("尚未安装或尚无匹配当前文件的诊断") }
         }
     }

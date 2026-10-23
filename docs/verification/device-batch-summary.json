@@ -1,0 +1,1089 @@
+{
+  "device": "iPhone 15",
+  "date": "2026-10-23",
+  "environment": {
+    "build": "1.0 (1)",
+    "configuration": "Debug",
+    "cpu": "arm64 / 6 logical CPUs",
+    "system": "Version 26.2 (Build 23C55)"
+  },
+  "runID": "48052D8B-34E2-49EB-80EC-437E13141FFF",
+  "planned": 133,
+  "attempted": 133,
+  "completedMovies": 133,
+  "failedMovies": 0,
+  "cancelled": false,
+  "uniquePlayers": 1,
+  "sourceReportSHA256": "0186d043b693b1a3f89f47f99b753ae8229f1f85423bf1584fadf54708b1eb65",
+  "systemPresentationObservedMovies": 133,
+  "gpuUnavailableSkips": 0,
+  "visual": [
+    "pending"
+  ],
+  "samples": [
+    {
+      "file": "1.svga",
+      "sha256": "f5272c0bbd896ccfc5b9383c608af3d7970623c71a80ed2c3f630a2a07562a2e",
+      "gpuCompletions": 78,
+      "systemPresentations": 77,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "2.svga",
+      "sha256": "577d5e357593c87a0f2b00f4770519a8e5db57c6b9c9b231a2e374bb88c7ff90",
+      "gpuCompletions": 45,
+      "systemPresentations": 44,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "3.svga",
+      "sha256": "be07cbd5ec376617b82281548d27f1e0fb286c7c7e1d731cab18143204434526",
+      "gpuCompletions": 86,
+      "systemPresentations": 86,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "4.svga",
+      "sha256": "849fb89ad9b13b038786e7885322c47a3c3690863df504ea9771bd13b6a0ad50",
+      "gpuCompletions": 87,
+      "systemPresentations": 87,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "5.svga",
+      "sha256": "cd17d30a3bd49187ac37ddcbeaf6e1a5892940537d0386f52e314c8f67903e35",
+      "gpuCompletions": 87,
+      "systemPresentations": 86,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "6.svga",
+      "sha256": "7e82dfd7bd48011060de1c611aaea42dcb64cdc98bbff03fe81d73912400a108",
+      "gpuCompletions": 78,
+      "systemPresentations": 77,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "7.svga",
+      "sha256": "b083d505584c15182aac5017f6b403e1c9e25df7f6f3d202a31b9856410c8ce9",
+      "gpuCompletions": 87,
+      "systemPresentations": 86,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "8.svga",
+      "sha256": "f8b30cb0cab12779ffd94e80db48695b529304b8ffd21d7afd2197a1e2bcdaed",
+      "gpuCompletions": 78,
+      "systemPresentations": 78,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "9.svga",
+      "sha256": "a821982c4e3aec5376958ea2399b5a61874650666048f4266d7ecd21724674e4",
+      "gpuCompletions": 86,
+      "systemPresentations": 86,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "10.svga",
+      "sha256": "a821982c4e3aec5376958ea2399b5a61874650666048f4266d7ecd21724674e4",
+      "gpuCompletions": 86,
+      "systemPresentations": 86,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "11.svga",
+      "sha256": "fbe7dd1ef39819e82f5ecc25afc78cc0d8e6843dc23311559b155dc910a3c7ba",
+      "gpuCompletions": 78,
+      "systemPresentations": 78,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "12.svga",
+      "sha256": "a6c44e9e6e0bdf2b00157c0fbdc84026b612342d47768968b4b8cbe05e7f1d27",
+      "gpuCompletions": 78,
+      "systemPresentations": 78,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "13.svga",
+      "sha256": "fe3d65b458177dab7992172225094f6d9238ee651bcd58ee20aabcff89483b9b",
+      "gpuCompletions": 87,
+      "systemPresentations": 87,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "14.svga",
+      "sha256": "f5272c0bbd896ccfc5b9383c608af3d7970623c71a80ed2c3f630a2a07562a2e",
+      "gpuCompletions": 78,
+      "systemPresentations": 78,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "15.svga",
+      "sha256": "ef769bc6ee7da397016d4987178b9f96253642f1fe95533c9550aa128e6f4bc6",
+      "gpuCompletions": 108,
+      "systemPresentations": 107,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "16.svga",
+      "sha256": "0c09aeefb0bce50153cd76e2bb49ba16698dc0954f28796d470162ad6b72a174",
+      "gpuCompletions": 86,
+      "systemPresentations": 86,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "17.svga",
+      "sha256": "be07cbd5ec376617b82281548d27f1e0fb286c7c7e1d731cab18143204434526",
+      "gpuCompletions": 87,
+      "systemPresentations": 86,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "18.svga",
+      "sha256": "2721ccc1aea761637b300dc1cd88a88e10f92ce7064fc4c6aa18938a84ae93ea",
+      "gpuCompletions": 87,
+      "systemPresentations": 86,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "19.svga",
+      "sha256": "332710c08d20dc5399f51ecc64e0944861ed276cb77b0fc378c1e5cb703e92fb",
+      "gpuCompletions": 87,
+      "systemPresentations": 87,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "20.svga",
+      "sha256": "a13a62e84974c0eea2c18f081a4176497c1dc5c9dfae81de9af3ebc092cad643",
+      "gpuCompletions": 87,
+      "systemPresentations": 86,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "21.svga",
+      "sha256": "fe214459dd7bef502b5c0e5d8603d41d9a097811610878463ff64d37a23e7785",
+      "gpuCompletions": 87,
+      "systemPresentations": 86,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "22.svga",
+      "sha256": "694eb644a59f92dcaf14b80d68eecc26b4ecb4e3f4ca04cf5bf33c96dccf693c",
+      "gpuCompletions": 59,
+      "systemPresentations": 59,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "23.svga",
+      "sha256": "7947016383d105583b57fe99af62f9bd4d8a230284a0ebb2925966980545634a",
+      "gpuCompletions": 78,
+      "systemPresentations": 78,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "24.svga",
+      "sha256": "b3bba417b1f1df5aa1a9d5091f04aa9d1c2948547f8d2d6f097e6a653c50fe11",
+      "gpuCompletions": 109,
+      "systemPresentations": 109,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "25.svga",
+      "sha256": "7947016383d105583b57fe99af62f9bd4d8a230284a0ebb2925966980545634a",
+      "gpuCompletions": 78,
+      "systemPresentations": 78,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "26.svga",
+      "sha256": "a2cf553accae0d5fa831993fd49b39281e2b9c483f1f1413184e18a4cbe32b0d",
+      "gpuCompletions": 88,
+      "systemPresentations": 88,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "27.svga",
+      "sha256": "f2b4b83056c8e15d00b168a2bcd27ab18add4cdfc9f80739b6ebd2936db45aea",
+      "gpuCompletions": 87,
+      "systemPresentations": 86,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "28.svga",
+      "sha256": "fbe7dd1ef39819e82f5ecc25afc78cc0d8e6843dc23311559b155dc910a3c7ba",
+      "gpuCompletions": 78,
+      "systemPresentations": 78,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "29.svga",
+      "sha256": "a13a62e84974c0eea2c18f081a4176497c1dc5c9dfae81de9af3ebc092cad643",
+      "gpuCompletions": 87,
+      "systemPresentations": 87,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "30.svga",
+      "sha256": "1a85567542f700310106e1cfdbd02ba6790170b6774427460db58bed28c9f4b3",
+      "gpuCompletions": 78,
+      "systemPresentations": 78,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "31.svga",
+      "sha256": "0e0254ac7512514f08209046bf9f8e2c18508a412c1d726dc7457751e53fc037",
+      "gpuCompletions": 87,
+      "systemPresentations": 86,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "32.svga",
+      "sha256": "a6285b9c403dbd42ec95b0320bb17acdb7201a47f85f1a37fb8d7aa121aeed6b",
+      "gpuCompletions": 87,
+      "systemPresentations": 87,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "33.svga",
+      "sha256": "8cda078573be33740a1c2f44029493711ad1b06a6036284904e3ed1fa4ad9ccf",
+      "gpuCompletions": 87,
+      "systemPresentations": 86,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "34.svga",
+      "sha256": "37807d05eca468c12008634a7cc46a8ae6679d140935388d98b1a7a42edc012d",
+      "gpuCompletions": 87,
+      "systemPresentations": 86,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "35.svga",
+      "sha256": "4d365b9d64fd5c9877abbdec726b240f4525c2989d59383defede695fc6df2f7",
+      "gpuCompletions": 45,
+      "systemPresentations": 45,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "36.svga",
+      "sha256": "50d7c10716ffb3dcb80cd617b258633cd1f582aaf11e027b98d67f9a8ac49b41",
+      "gpuCompletions": 45,
+      "systemPresentations": 45,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "37.svga",
+      "sha256": "149d78edff9e9643a7b4cc6cbdef7c9f04ede79789416c5cd3bb8a4147f14c65",
+      "gpuCompletions": 59,
+      "systemPresentations": 59,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "38.svga",
+      "sha256": "2721ccc1aea761637b300dc1cd88a88e10f92ce7064fc4c6aa18938a84ae93ea",
+      "gpuCompletions": 86,
+      "systemPresentations": 86,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "39.svga",
+      "sha256": "b15a628f90992ae99f5aed0ad31025c90ffeced7766af6d917e897c3ab8b2b52",
+      "gpuCompletions": 87,
+      "systemPresentations": 86,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "40.svga",
+      "sha256": "849fb89ad9b13b038786e7885322c47a3c3690863df504ea9771bd13b6a0ad50",
+      "gpuCompletions": 87,
+      "systemPresentations": 86,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "41.svga",
+      "sha256": "3868254a3dd878c6c77fa8d1401d0aea80554d67d8048b769ca8040610e3755f",
+      "gpuCompletions": 59,
+      "systemPresentations": 59,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "42.svga",
+      "sha256": "722eaa5466e795143b1dd628c457d668aedad4e74a8edeb8e0f3dd0049f4cf9d",
+      "gpuCompletions": 87,
+      "systemPresentations": 86,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "43.svga",
+      "sha256": "f8b30cb0cab12779ffd94e80db48695b529304b8ffd21d7afd2197a1e2bcdaed",
+      "gpuCompletions": 78,
+      "systemPresentations": 78,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "44.svga",
+      "sha256": "041d49e0dff579423d91c69bc4f16ecaa8058fa0218690b048ea47b0350311cc",
+      "gpuCompletions": 78,
+      "systemPresentations": 78,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "45.svga",
+      "sha256": "54a36ac95ae8f6df4d5a5316ea21ce5958c2286df2643e6188a51714f664d359",
+      "gpuCompletions": 87,
+      "systemPresentations": 86,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "46.svga",
+      "sha256": "2048ce4f051ba699a3a025204a77e721275adce1e5af0920c4b5675c7763c2b9",
+      "gpuCompletions": 59,
+      "systemPresentations": 58,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "47.svga",
+      "sha256": "54a36ac95ae8f6df4d5a5316ea21ce5958c2286df2643e6188a51714f664d359",
+      "gpuCompletions": 87,
+      "systemPresentations": 86,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "48.svga",
+      "sha256": "a007b75be1a39082da7e8e03a3daa671f384359a1c7c4e623fc29680089b710e",
+      "gpuCompletions": 59,
+      "systemPresentations": 59,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "49.svga",
+      "sha256": "0c09aeefb0bce50153cd76e2bb49ba16698dc0954f28796d470162ad6b72a174",
+      "gpuCompletions": 87,
+      "systemPresentations": 87,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "50.svga",
+      "sha256": "673a942be92a308f4b4bc785d289741d2425bea46c97f55ef213fe13cc563d68",
+      "gpuCompletions": 78,
+      "systemPresentations": 78,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "51.svga",
+      "sha256": "041d49e0dff579423d91c69bc4f16ecaa8058fa0218690b048ea47b0350311cc",
+      "gpuCompletions": 78,
+      "systemPresentations": 78,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "52.svga",
+      "sha256": "e7225972c24d8f30252482d467ec0f4dbaf3c2d54d8d2e761ca8f45df5b269da",
+      "gpuCompletions": 78,
+      "systemPresentations": 78,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "53.svga",
+      "sha256": "d8b9585543fed595196570547b2f2f2cdf253c03fde0d6c862dd60a5e0f532b6",
+      "gpuCompletions": 87,
+      "systemPresentations": 87,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "54.svga",
+      "sha256": "328627516cbcec46a1cfc65d6f28c5fb2a9d0582897ac72a7ad773133dc155f3",
+      "gpuCompletions": 87,
+      "systemPresentations": 87,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "55.svga",
+      "sha256": "2a219d08f85682d1f5e7c2ef842d4647b65843d9f6d4adecd461299551ba4380",
+      "gpuCompletions": 78,
+      "systemPresentations": 78,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "56.svga",
+      "sha256": "4d365b9d64fd5c9877abbdec726b240f4525c2989d59383defede695fc6df2f7",
+      "gpuCompletions": 45,
+      "systemPresentations": 44,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "57.svga",
+      "sha256": "97f0843bf297a3b1017cec032368550309c6109c881bd5497cc21f1abf2c8b95",
+      "gpuCompletions": 44,
+      "systemPresentations": 43,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "58.svga",
+      "sha256": "3868254a3dd878c6c77fa8d1401d0aea80554d67d8048b769ca8040610e3755f",
+      "gpuCompletions": 59,
+      "systemPresentations": 58,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "59.svga",
+      "sha256": "6375a69ebbf3395d2f8dc44702792811e2896dbb22ff036b6b44dfcb93ac0a25",
+      "gpuCompletions": 78,
+      "systemPresentations": 78,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "60.svga",
+      "sha256": "db1cced5f5cd540080bbd56037c98bc502f1e5d26c5480936d4231f378abd9c6",
+      "gpuCompletions": 37,
+      "systemPresentations": 37,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "61.svga",
+      "sha256": "c28f130c9dbe0495ffaa1d7b41d354eb8d01ca7ea009ef34a8de183285e329d5",
+      "gpuCompletions": 70,
+      "systemPresentations": 70,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "62.svga",
+      "sha256": "722eaa5466e795143b1dd628c457d668aedad4e74a8edeb8e0f3dd0049f4cf9d",
+      "gpuCompletions": 87,
+      "systemPresentations": 87,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "63.svga",
+      "sha256": "06bdb1f3476d916d860a4e8d1363e32eb3b51a65d5fa0898cec2e069f84949c4",
+      "gpuCompletions": 98,
+      "systemPresentations": 98,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "64.svga",
+      "sha256": "5bcd29cf9d35aa2e0f5bcc1ddf2a6c363009b05d36cd7f3f5064a7a56fa6b269",
+      "gpuCompletions": 59,
+      "systemPresentations": 58,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "65.svga",
+      "sha256": "ede2ee2c96d969594832aee5c18ad90cb2fe39d1ce8f83cc5862133642b54e4a",
+      "gpuCompletions": 61,
+      "systemPresentations": 61,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "66.svga",
+      "sha256": "2048ce4f051ba699a3a025204a77e721275adce1e5af0920c4b5675c7763c2b9",
+      "gpuCompletions": 58,
+      "systemPresentations": 57,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "67.svga",
+      "sha256": "70dbf24cdc78c924ded1c9f7a850d8a9ae4fe5c4a28f0d0211628c65e77c8546",
+      "gpuCompletions": 62,
+      "systemPresentations": 61,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "68.svga",
+      "sha256": "332710c08d20dc5399f51ecc64e0944861ed276cb77b0fc378c1e5cb703e92fb",
+      "gpuCompletions": 71,
+      "systemPresentations": 71,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "69.svga",
+      "sha256": "0cbcfa2375c1a4223aafd25ebf3c8c8f93fc032e5cc2a54b56be7e26abf7dd88",
+      "gpuCompletions": 71,
+      "systemPresentations": 71,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "70.svga",
+      "sha256": "385c0da409b1a3b5d754fc1e899e0e568d041917b2742a22269c6c1ab8330ff4",
+      "gpuCompletions": 59,
+      "systemPresentations": 58,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "71.svga",
+      "sha256": "ede2ee2c96d969594832aee5c18ad90cb2fe39d1ce8f83cc5862133642b54e4a",
+      "gpuCompletions": 66,
+      "systemPresentations": 66,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "72.svga",
+      "sha256": "673a942be92a308f4b4bc785d289741d2425bea46c97f55ef213fe13cc563d68",
+      "gpuCompletions": 78,
+      "systemPresentations": 77,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "73.svga",
+      "sha256": "ef769bc6ee7da397016d4987178b9f96253642f1fe95533c9550aa128e6f4bc6",
+      "gpuCompletions": 108,
+      "systemPresentations": 108,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "74.svga",
+      "sha256": "37807d05eca468c12008634a7cc46a8ae6679d140935388d98b1a7a42edc012d",
+      "gpuCompletions": 87,
+      "systemPresentations": 87,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "75.svga",
+      "sha256": "cd17d30a3bd49187ac37ddcbeaf6e1a5892940537d0386f52e314c8f67903e35",
+      "gpuCompletions": 87,
+      "systemPresentations": 86,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "76.svga",
+      "sha256": "2a219d08f85682d1f5e7c2ef842d4647b65843d9f6d4adecd461299551ba4380",
+      "gpuCompletions": 78,
+      "systemPresentations": 78,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "77.svga",
+      "sha256": "bebd731971405f834b445b1a2a6fc46838f452184b1512eb37f12ef0460c3760",
+      "gpuCompletions": 87,
+      "systemPresentations": 87,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "78.svga",
+      "sha256": "2d46c743d26f4d1483ff5b5052de21c6617292f5489ea1d05f48d2d9df6282bb",
+      "gpuCompletions": 87,
+      "systemPresentations": 86,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "79.svga",
+      "sha256": "db90df9553695c73fc9e7662c02b4be470faa24d1426abeeb8da87118225edae",
+      "gpuCompletions": 115,
+      "systemPresentations": 115,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "80.svga",
+      "sha256": "b3bba417b1f1df5aa1a9d5091f04aa9d1c2948547f8d2d6f097e6a653c50fe11",
+      "gpuCompletions": 101,
+      "systemPresentations": 100,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "81.svga",
+      "sha256": "db90df9553695c73fc9e7662c02b4be470faa24d1426abeeb8da87118225edae",
+      "gpuCompletions": 116,
+      "systemPresentations": 116,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "82.svga",
+      "sha256": "5bcd29cf9d35aa2e0f5bcc1ddf2a6c363009b05d36cd7f3f5064a7a56fa6b269",
+      "gpuCompletions": 55,
+      "systemPresentations": 55,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "83.svga",
+      "sha256": "1a85567542f700310106e1cfdbd02ba6790170b6774427460db58bed28c9f4b3",
+      "gpuCompletions": 77,
+      "systemPresentations": 76,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "84.svga",
+      "sha256": "8d7022d91e5a5522d90f56df5a09e3d21c7175d88d11a9094193acae514f8810",
+      "gpuCompletions": 70,
+      "systemPresentations": 70,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "85.svga",
+      "sha256": "3e3fa0f91dfed2e72dc1d6abfa64d3dffa533b53cad11a8f6e9f57a617549664",
+      "gpuCompletions": 79,
+      "systemPresentations": 79,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "86.svga",
+      "sha256": "81fbcf0648911512fa435c00c8c34a7fd9f203ab41c6ef579cc23e3e00bd82d5",
+      "gpuCompletions": 70,
+      "systemPresentations": 70,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "87.svga",
+      "sha256": "6375a69ebbf3395d2f8dc44702792811e2896dbb22ff036b6b44dfcb93ac0a25",
+      "gpuCompletions": 78,
+      "systemPresentations": 77,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "88.svga",
+      "sha256": "d8c753b2d039c6b9b1b373f5c4c2fb594d605d168cb82ef07525e66a901657a7",
+      "gpuCompletions": 87,
+      "systemPresentations": 87,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "89.svga",
+      "sha256": "fe3d65b458177dab7992172225094f6d9238ee651bcd58ee20aabcff89483b9b",
+      "gpuCompletions": 72,
+      "systemPresentations": 72,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "90.svga",
+      "sha256": "0e0254ac7512514f08209046bf9f8e2c18508a412c1d726dc7457751e53fc037",
+      "gpuCompletions": 72,
+      "systemPresentations": 71,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "91.svga",
+      "sha256": "694eb644a59f92dcaf14b80d68eecc26b4ecb4e3f4ca04cf5bf33c96dccf693c",
+      "gpuCompletions": 59,
+      "systemPresentations": 58,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "92.svga",
+      "sha256": "51ed7e9cc78908e7bd848da2cd79f1e987bbf23c24f48fa9e5d46599eece4806",
+      "gpuCompletions": 87,
+      "systemPresentations": 86,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "93.svga",
+      "sha256": "8cda078573be33740a1c2f44029493711ad1b06a6036284904e3ed1fa4ad9ccf",
+      "gpuCompletions": 72,
+      "systemPresentations": 72,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "94.svga",
+      "sha256": "06bdb1f3476d916d860a4e8d1363e32eb3b51a65d5fa0898cec2e069f84949c4",
+      "gpuCompletions": 100,
+      "systemPresentations": 99,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "95.svga",
+      "sha256": "8db0b290922f2745d27a6fcd25351ee95fa8a42256d4afcc7ff2f4c6bd0605ad",
+      "gpuCompletions": 72,
+      "systemPresentations": 71,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "96.svga",
+      "sha256": "3e3fa0f91dfed2e72dc1d6abfa64d3dffa533b53cad11a8f6e9f57a617549664",
+      "gpuCompletions": 71,
+      "systemPresentations": 71,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "97.svga",
+      "sha256": "97f0843bf297a3b1017cec032368550309c6109c881bd5497cc21f1abf2c8b95",
+      "gpuCompletions": 44,
+      "systemPresentations": 43,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "98.svga",
+      "sha256": "b15a628f90992ae99f5aed0ad31025c90ffeced7766af6d917e897c3ab8b2b52",
+      "gpuCompletions": 72,
+      "systemPresentations": 72,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "99.svga",
+      "sha256": "70dbf24cdc78c924ded1c9f7a850d8a9ae4fe5c4a28f0d0211628c65e77c8546",
+      "gpuCompletions": 63,
+      "systemPresentations": 63,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "100.svga",
+      "sha256": "8d7022d91e5a5522d90f56df5a09e3d21c7175d88d11a9094193acae514f8810",
+      "gpuCompletions": 71,
+      "systemPresentations": 71,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "101.svga",
+      "sha256": "385c0da409b1a3b5d754fc1e899e0e568d041917b2742a22269c6c1ab8330ff4",
+      "gpuCompletions": 54,
+      "systemPresentations": 53,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "102.svga",
+      "sha256": "a007b75be1a39082da7e8e03a3daa671f384359a1c7c4e623fc29680089b710e",
+      "gpuCompletions": 59,
+      "systemPresentations": 58,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "103.svga",
+      "sha256": "b083d505584c15182aac5017f6b403e1c9e25df7f6f3d202a31b9856410c8ce9",
+      "gpuCompletions": 71,
+      "systemPresentations": 70,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "104.svga",
+      "sha256": "e7225972c24d8f30252482d467ec0f4dbaf3c2d54d8d2e761ca8f45df5b269da",
+      "gpuCompletions": 71,
+      "systemPresentations": 71,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "105.svga",
+      "sha256": "bebd731971405f834b445b1a2a6fc46838f452184b1512eb37f12ef0460c3760",
+      "gpuCompletions": 87,
+      "systemPresentations": 87,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "106.svga",
+      "sha256": "f62cc4071d546d45c7614cf26d29534fdbbe19a96bba7e9f9ebf399c3dcad982",
+      "gpuCompletions": 71,
+      "systemPresentations": 71,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "107.svga",
+      "sha256": "0cbcfa2375c1a4223aafd25ebf3c8c8f93fc032e5cc2a54b56be7e26abf7dd88",
+      "gpuCompletions": 87,
+      "systemPresentations": 86,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "108.svga",
+      "sha256": "d8c753b2d039c6b9b1b373f5c4c2fb594d605d168cb82ef07525e66a901657a7",
+      "gpuCompletions": 70,
+      "systemPresentations": 70,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "109.svga",
+      "sha256": "db1cced5f5cd540080bbd56037c98bc502f1e5d26c5480936d4231f378abd9c6",
+      "gpuCompletions": 37,
+      "systemPresentations": 36,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "110.svga",
+      "sha256": "a6c44e9e6e0bdf2b00157c0fbdc84026b612342d47768968b4b8cbe05e7f1d27",
+      "gpuCompletions": 77,
+      "systemPresentations": 77,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "111.svga",
+      "sha256": "2d0864466150742e1af2a00eb589ca9dfdce0ac9fe6798b7569f1d7cb3428633",
+      "gpuCompletions": 87,
+      "systemPresentations": 87,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "112.svga",
+      "sha256": "149d78edff9e9643a7b4cc6cbdef7c9f04ede79789416c5cd3bb8a4147f14c65",
+      "gpuCompletions": 58,
+      "systemPresentations": 57,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "113.svga",
+      "sha256": "c28f130c9dbe0495ffaa1d7b41d354eb8d01ca7ea009ef34a8de183285e329d5",
+      "gpuCompletions": 77,
+      "systemPresentations": 77,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "114.svga",
+      "sha256": "51ed7e9cc78908e7bd848da2cd79f1e987bbf23c24f48fa9e5d46599eece4806",
+      "gpuCompletions": 73,
+      "systemPresentations": 73,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "115.svga",
+      "sha256": "81fbcf0648911512fa435c00c8c34a7fd9f203ab41c6ef579cc23e3e00bd82d5",
+      "gpuCompletions": 76,
+      "systemPresentations": 75,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "116.svga",
+      "sha256": "a2cf553accae0d5fa831993fd49b39281e2b9c483f1f1413184e18a4cbe32b0d",
+      "gpuCompletions": 87,
+      "systemPresentations": 87,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "117.svga",
+      "sha256": "8db0b290922f2745d27a6fcd25351ee95fa8a42256d4afcc7ff2f4c6bd0605ad",
+      "gpuCompletions": 87,
+      "systemPresentations": 87,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "118.svga",
+      "sha256": "fe214459dd7bef502b5c0e5d8603d41d9a097811610878463ff64d37a23e7785",
+      "gpuCompletions": 86,
+      "systemPresentations": 86,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "119.svga",
+      "sha256": "577d5e357593c87a0f2b00f4770519a8e5db57c6b9c9b231a2e374bb88c7ff90",
+      "gpuCompletions": 45,
+      "systemPresentations": 44,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "120.svga",
+      "sha256": "d8b9585543fed595196570547b2f2f2cdf253c03fde0d6c862dd60a5e0f532b6",
+      "gpuCompletions": 87,
+      "systemPresentations": 86,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "121.svga",
+      "sha256": "2d0864466150742e1af2a00eb589ca9dfdce0ac9fe6798b7569f1d7cb3428633",
+      "gpuCompletions": 87,
+      "systemPresentations": 87,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "122.svga",
+      "sha256": "f2b4b83056c8e15d00b168a2bcd27ab18add4cdfc9f80739b6ebd2936db45aea",
+      "gpuCompletions": 87,
+      "systemPresentations": 86,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "123.svga",
+      "sha256": "a6285b9c403dbd42ec95b0320bb17acdb7201a47f85f1a37fb8d7aa121aeed6b",
+      "gpuCompletions": 70,
+      "systemPresentations": 70,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "124.svga",
+      "sha256": "f62cc4071d546d45c7614cf26d29534fdbbe19a96bba7e9f9ebf399c3dcad982",
+      "gpuCompletions": 70,
+      "systemPresentations": 70,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "125.svga",
+      "sha256": "7e82dfd7bd48011060de1c611aaea42dcb64cdc98bbff03fe81d73912400a108",
+      "gpuCompletions": 70,
+      "systemPresentations": 70,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "126.svga",
+      "sha256": "50d7c10716ffb3dcb80cd617b258633cd1f582aaf11e027b98d67f9a8ac49b41",
+      "gpuCompletions": 45,
+      "systemPresentations": 45,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "127.svga",
+      "sha256": "acf7b87ffb4777246b7bfc9cbf070246b3f702a742a2b683e767ab49f1470510",
+      "gpuCompletions": 75,
+      "systemPresentations": 75,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "128.svga",
+      "sha256": "ced274e80e10f547211ade3e9656faa7f68affdcdd0b046480936da3b886f4f1",
+      "gpuCompletions": 92,
+      "systemPresentations": 92,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "129.svga",
+      "sha256": "0f7935b7453f754abf2ed1576433d28289715e2fce38cf60ac6311f7d9706c00",
+      "gpuCompletions": 60,
+      "systemPresentations": 60,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "130.svga",
+      "sha256": "c87cacdbb9700e1e37945680734f4db82a7955cc5bea59e1c9c9f2cdbfdd8921",
+      "gpuCompletions": 44,
+      "systemPresentations": 43,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "131.svga",
+      "sha256": "19d09cc4a687be591a21b3056ed54b4058f3d75a4b1ad065c618ef2d6207a752",
+      "gpuCompletions": 93,
+      "systemPresentations": 92,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "132.svga",
+      "sha256": "09dfc879da708b4e6d0aaf5f01777e42a77a8a3e658e062686f94d6968440a30",
+      "gpuCompletions": 48,
+      "systemPresentations": 47,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    },
+    {
+      "file": "133.svga",
+      "sha256": "113537036aec9e709c077da9d004d706330e0cde0547763cf5c9f86702fdeea4",
+      "gpuCompletions": 72,
+      "systemPresentations": 71,
+      "wholeIterations": 1,
+      "gpuUnavailableSkips": 0
+    }
+  ]
+}

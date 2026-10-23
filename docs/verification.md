@@ -40,3 +40,24 @@
 - 按 README 的交互清单验证连续替换、宿主挂卸、隐藏与恢复、批次取消和分享。库层的取消、迟到完成和内容失败路径已有自动回归，但不能替代这些 UI 操作。
 
 未提交 git、未推远程；两个参考仓库保持只读。
+
+## 后续真机回归：后台 Metal 权限拒绝
+
+设备为 iPhone 15，iOS 26.2。用户报告列表前几行报 Metal 错误，已从 [现场截图](verification/device-metal-error-before.png) 确认 `MTLCommandBufferErrorDomain Code=7`。单播放器顺序批播可以完成全部 133 份，因此不能用批播通过排除列表的生命周期问题。
+
+旧宿主只检查窗口、隐藏和尺寸，没有检查 App 活动状态；取到 drawable 后也没有在实际提交前核验后台切换。驱动拒绝在途工作后，旧代码把权限错误升级为永久 `.failed`。错误码依据本机 SDK `MTLCommandBuffer.h` 的 `MTLCommandBufferErrorNotPermitted = 7`；平台要求见 [Apple 后台 Metal 指南](https://developer.apple.com/documentation/metal/preparing-your-metal-app-to-run-in-the-background)。
+
+修复包括：
+
+- UIKit 在失去活动状态时同步停止新 GPU 提交，等待已提交命令被系统调度；恢复后主动重绘。
+- 获取 drawable 与实际 present / commit 共用线程安全提交许可，覆盖两者之间发生生命周期切换的竞态。
+- 仅将 Metal `notPermitted` 记为可恢复的 `gpuUnavailable` 事件和 `gpuUnavailableSkips`，不增加 GPU 完成计数；其他 Metal 错误继续作为主失败。
+- 不改变调用方的播放、暂停或循环设置，也不增加列表预览名额限制。
+
+新增 6 个回归用例，总计 **26 个测试、6 组通过**。覆盖错误域分类、Code=7 后可恢复、严重 GPU 错误仍失败、停用后不 present / commit、等待已提交命令调度，以及前台恢复重绘暂停帧。macOS、iOS Simulator 和使用现有签名的真机构建均成功。
+
+修复版已安装到同一真机，在同一进程连续进行三次前后台切换。第 1、3 次及延后检查的实际列表画面中，前四行均保持 `playing`，角色姿态发生变化；[恢复后的截图](verification/device-metal-error-after.png) 已保存。第 2 次截图处于系统任务切换过渡，不作为最终画面通过证据。
+
+根目录 [使用说明](../使用说明.md) 已覆盖全部公开功能和详情页操作。文档中的 Swift 示例分别针对 macOS 与 iOS 做了类型检查，文内链接和公开声明名称覆盖检查通过。
+
+修复版同一真机的完整批播也已结束，runID 为 `48052D8B-34E2-49EB-80EC-437E13141FFF`：计划 133、尝试 133、自然完整一轮 133、失败 0、未取消，整个批次只有一个 playerID，全部有成功 GPU 完成。可查看 [真机完成画面](verification/device-batch-completed.png) 与 [逐份机器摘要](verification/device-batch-summary.json)。报告的 `visual` 仍全部为 `pending`，不以计数替代逐帧画面核对。

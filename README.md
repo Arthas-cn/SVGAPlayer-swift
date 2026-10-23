@@ -2,6 +2,8 @@
 
 Swift 6.4 / iOS 26 / macOS 26 的 SVGA 重写。库为 SPM product `SVGAPlayer-swift`，导入名 `SVGAPlayer_swift`。库默认 `nonisolated`，播放状态由独立 actor 管理；SwiftUI、UIKit、AppKit 只承载一个 `CAMetalLayer`。
 
+完整功能、参数、详情页操作和排错方法见 [使用说明](使用说明.md)。
+
 ## 目录与数据流
 
 - `packages/SVGAPlayer-swift`：影片、解析缓存、播放控制、Metal 合成与平台宿主。

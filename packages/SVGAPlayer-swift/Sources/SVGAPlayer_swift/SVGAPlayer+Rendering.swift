@@ -99,10 +99,17 @@ extension SVGAPlayer {
                     let duration = command.gpuEndTime > command.gpuStartTime && command.gpuStartTime > 0
                         ? command.gpuEndTime - command.gpuStartTime : nil
                     continuation.resume(returning: GPUCompletion(succeeded: command.status == .completed,
-                        error: command.error.map { String(describing: $0) }, seconds: duration, observed: Monotonic.now))
+                        error: command.error.map { String(describing: $0) }, seconds: duration, observed: Monotonic.now,
+                        isUnavailable: GPUCompletion.isPermissionError(command.error)))
                 }
-                submission.commandBuffer.present(frame.drawable)
-                submission.commandBuffer.commit()
+                guard frame.submissionGate.submit(submission.commandBuffer, present: {
+                    submission.commandBuffer.present(frame.drawable)
+                }) else {
+                    // drawable 获取后可能失去前台许可；此命令从未提交，不等待一个永远不会到达的 GPU 回调。
+                    continuation.resume(returning: GPUCompletion(succeeded: false, error: nil,
+                        seconds: nil, observed: Monotonic.now, isUnavailable: true))
+                    return
+                }
                 if request.installationID == currentDiagnostics?.installationID {
                     currentDiagnostics?.submittedCommands += 1
                     if currentDiagnostics?.firstSubmitSeconds == nil {
@@ -126,6 +133,12 @@ extension SVGAPlayer {
     func completed(_ request: FrameRequest, result: GPUCompletion) {
         guard request.installationID == currentDiagnostics?.installationID, request.installationID != nil else { return }
         guard result.succeeded else {
+            // iOS 切后台可能拒绝已经在途的命令；它不代表影片损坏，保留状态等待前台宿主重绘。
+            if result.isUnavailable {
+                currentDiagnostics?.gpuUnavailableSkips += 1
+                record(.gpuUnavailable, request: request, accepted: false, time: result.observed)
+                return
+            }
             if matches(request) {
                 failure = result.error ?? "Metal 命令未成功完成"
                 state = .failed
@@ -200,4 +213,22 @@ struct GPUCompletion: Sendable {
     let seconds: Double?
     /// 回调到达时的单调时间。
     let observed: Double
+    /// 平台暂停提交或 Metal notPermitted；仅此类暂时不可用可恢复，其他 GPU 错误仍是主失败。
+    let isUnavailable: Bool
+
+    /// 构造真实完成或未提交跳过的纯值；跳过时 succeeded 为 false，不能增加 GPU 完成数。
+    init(succeeded: Bool, error: String?, seconds: Double?, observed: Double, isUnavailable: Bool = false) {
+        self.succeeded = succeeded
+        self.error = error
+        self.seconds = seconds
+        self.observed = observed
+        self.isUnavailable = isUnavailable
+    }
+
+    /// 使用官方 Metal 错误域及 notPermitted 枚举识别后台权限拒绝，不匹配描述字符串或其他错误域的 7。
+    static func isPermissionError(_ error: (any Error)?) -> Bool {
+        guard let error = error as NSError? else { return false }
+        return error.domain == MTLCommandBufferErrorDomain
+            && error.code == MTLCommandBufferError.Code.notPermitted.rawValue
+    }
 }
