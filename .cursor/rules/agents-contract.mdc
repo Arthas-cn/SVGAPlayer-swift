@@ -1,0 +1,14 @@
+---
+description: 项目约定以仓库根目录 AGENTS.md 为唯一正文，Cursor 与 Codex 共用
+alwaysApply: true
+---
+
+# 约定入口
+
+Cursor 与 Codex 的项目约定只有仓库根目录的 `AGENTS.md`。Codex 不读取 `.cursor/rules`。不要在本目录再写一份会分叉的正文。
+
+上下文里如果还没有该文件的条款，先读 `AGENTS.md` 再动手。
+
+- 技术栈、重写范围、Metal、`.svga` 证据，以及 R1–R3、R8–R9，每次都遵守。
+- 用户要实现、调试、审查或讲解结构时，套用 R4–R7。
+- 创建 SPM 包，或把包接入 demo 时，套用 R10–R11。
