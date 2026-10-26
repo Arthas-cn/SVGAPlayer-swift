@@ -61,6 +61,9 @@ struct SurfaceFrame: @unchecked Sendable {
         attachment = Task { await player.attach(surface, id: id) }
     }
 
+    /// 等待初始化已创建的挂载任务；取消调用方也不能跳过真实绑定收口。
+    func waitUntilAttached() async { await attachment?.value }
+
     /// 销毁时只解绑自己的身份，不取消仍在其他宿主中使用的播放器。
     isolated deinit {
         let player = player, id = id, pending = attachment

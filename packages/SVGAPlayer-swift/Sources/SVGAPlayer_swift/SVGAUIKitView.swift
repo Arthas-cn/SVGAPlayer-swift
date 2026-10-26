@@ -31,6 +31,9 @@ import QuartzCore
         observeApplicationActivity()
     }
 
+    /// 等待此宿主初始化时的绑定完成；安装和关闭前调用，避免迟到绑定复活播放器。
+    public func waitUntilAttached() async { await binding?.waitUntilAttached() }
+
     /// 移除 MainActor 上创建的观察者，已提交工作仍由播放器排空。
     isolated deinit {
         for observer in lifecycleObservers { NotificationCenter.default.removeObserver(observer) }
