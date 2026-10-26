@@ -3,6 +3,8 @@
 
 import PackageDescription
 
+// 远程 SPM 读取仓库根 Package.swift。改 product、依赖版本或 defaultIsolation 时两边一起改。
+
 let package = Package(
     name: "SVGAPlayer-swift",
     platforms: [.iOS(.v26), .macOS(.v26)],
