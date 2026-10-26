@@ -58,6 +58,6 @@
 
 修复版已安装到同一真机，在同一进程连续进行三次前后台切换。第 1、3 次及延后检查的实际列表画面中，前四行均保持 `playing`，角色姿态发生变化；[恢复后的截图](verification/device-metal-error-after.png) 已保存。第 2 次截图处于系统任务切换过渡，不作为最终画面通过证据。
 
-根目录 [使用说明](../使用说明.md) 已覆盖全部公开功能和详情页操作。文档中的 Swift 示例分别针对 macOS 与 iOS 做了类型检查，文内链接和公开声明名称覆盖检查通过。
+根目录 [使用说明](../USAGE.md) 已覆盖全部公开功能和详情页操作。文档中的 Swift 示例分别针对 macOS 与 iOS 做了类型检查，文内链接和公开声明名称覆盖检查通过。
 
 修复版同一真机的完整批播也已结束，runID 为 `48052D8B-34E2-49EB-80EC-437E13141FFF`：计划 133、尝试 133、自然完整一轮 133、失败 0、未取消，整个批次只有一个 playerID，全部有成功 GPU 完成。可查看 [真机完成画面](verification/device-batch-completed.png) 与 [逐份机器摘要](verification/device-batch-summary.json)。报告的 `visual` 仍全部为 `pending`，不以计数替代逐帧画面核对。
