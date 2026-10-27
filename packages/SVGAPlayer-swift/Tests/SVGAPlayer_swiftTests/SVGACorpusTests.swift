@@ -17,7 +17,8 @@ struct SVGACorpusTests {
     func bundledCorpusParsesAndPreparesGeometry() async throws {
         let files = try FileManager.default.contentsOfDirectory(at: Self.directory, includingPropertiesForKeys: nil)
             .filter { $0.pathExtension == "svga" }.sorted { $0.lastPathComponent < $1.lastPathComponent }
-        #expect(files.count == 133)
+        // 原始 133 个样本必须仍在；新增真实资源也参加下方全量解析，不能因目录增长而误报失败。
+        #expect(files.count >= 133)
         let loader = SVGALoader(byteLimit: 0)
         for file in files {
             do {

@@ -63,7 +63,7 @@ extension SVGAPlayer {
                 record(.drawableUnavailable, request: request, accepted: false)
                 return
             }
-            // 获取 drawable 是 MainActor 暂停点；新 seek、替换、安装或宿主切换都可在此发生。
+            // drawable 在独立队列等待，期间主 actor 与播放器继续工作；迟到的布局/换片结果不能提交。
             guard matches(request), pendingFrame == nil else {
                 discard(request)
                 return
