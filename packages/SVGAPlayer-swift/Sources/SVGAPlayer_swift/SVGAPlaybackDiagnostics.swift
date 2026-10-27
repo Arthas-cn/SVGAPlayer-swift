@@ -22,7 +22,7 @@ public enum SVGALoop: Sendable, Codable, Equatable {
 
 /// 自然完成全部轮次后留下的画面，与显示适配互不混用。
 public enum SVGAEndBehavior: String, Sendable, Codable, CaseIterable {
-    /// 保留最后一个源帧。
+    /// 保留最后一个仍纳入播放的帧；尾部空帧不作为结束画面。
     case holdLastFrame
     /// 显示第一帧但不继续播放。
     case returnToFirstFrame
@@ -50,7 +50,7 @@ public enum SVGAPlaybackState: String, Sendable, Codable {
 public struct SVGAPosition: Sendable, Codable, Equatable {
     /// 从零开始的源帧序号。
     public let frame: Int
-    /// 相对源总帧数的进度，范围 0...1。
+    /// 相对有效播放区间的进度，范围 0...1。1 是最后一个仍播放的帧，不含被跳过的尾部空帧。
     public let progress: Double
     /// 对应源帧起点的秒数。
     public let seconds: Double

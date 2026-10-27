@@ -155,7 +155,8 @@ public actor SVGAPlayer {
             scene = result.scene
             audio = result.audio
             renderer = MetalRenderer(context: result.context)
-            timeline = PlaybackTimeline(frameCount: movie.frameCount, frameRate: movie.frameRate)
+            timeline = PlaybackTimeline(frameCount: movie.frameCount, frameRate: movie.frameRate,
+                                        playbackFrameCount: movie.playbackFrameCount)
             state = .paused
             clearsDisplay = false
             preparationTask = nil
@@ -228,12 +229,13 @@ public actor SVGAPlayer {
         requestFrame()
     }
 
-    /// 按有限的 0...1 进度定位；1 对应最后一个源帧，不传入越界的 frameCount。
+    /// 按有限的 0...1 进度定位。1 对应最后一个仍播放的帧；被跳过的尾部空帧只能用整数帧 API 定位。
     public func seek(toProgress progress: Double) throws {
         guard let movie = scene?.movie, progress.isFinite, (0...1).contains(progress) else {
             throw SVGAError.invalidOperation("进度须在 0...1 且已安装影片")
         }
-        try seek(toFrame: Int((progress * Double(movie.frameCount - 1)).rounded()))
+        let lastFrame = (timeline?.playbackFrameCount ?? movie.playbackFrameCount) - 1
+        try seek(toFrame: Int((progress * Double(max(0, lastFrame))).rounded()))
     }
 
     /// 重绘当前帧而不推进时间轴，适用于暂停状态和宿主尺寸变化。

@@ -1,3 +1,4 @@
+import CoreGraphics
 import Foundation
 import Testing
 import Metal
@@ -104,5 +105,86 @@ struct SVGAPlaybackTests {
     private func fixture(_ name: String) async throws -> SVGAMovie {
         let url = try #require(Bundle.module.url(forResource: name, withExtension: "svga", subdirectory: "Fixtures"))
         return try await SVGALoader().load(from: url).movie
+    }
+}
+
+/// 尾部空帧裁剪：只缩短默认播放区间，源 frameCount 和显式整数帧定位仍保留。
+struct SVGATrailingEmptyFrameTests {
+    /// 尾部连续透明帧被跳过，夹在中间的空帧仍留在播放区间里。
+    @Test func trailingTransparentFramesAreExcluded() {
+        let movie = makeMovie(frameCount: 5, frames: [
+            sample(alpha: 1), sample(alpha: 0), sample(alpha: 1), sample(alpha: 0), sample(alpha: 0.001),
+        ])
+        #expect(movie.frameCount == 5)
+        #expect(movie.playbackFrameCount == 3)
+    }
+
+    /// 没有位图也没有矢量的尾帧会被跳过；去后缀后能对上的位图，以及不带图片的矢量，都算有内容。
+    @Test func bitmapAndVectorFramesCountAsContent() {
+        let unmatched = makeMovie(frameCount: 2, key: "hero.png",
+                                  frames: [sample(alpha: 1, shapes: true), sample(alpha: 1)],
+                                  images: ["other": Data([1])])
+        #expect(unmatched.playbackFrameCount == 1)
+        let bitmap = makeMovie(frameCount: 2, key: "hero.png",
+                               frames: [sample(alpha: 1, shapes: true), sample(alpha: 1)],
+                               images: ["hero": Data([1])])
+        #expect(bitmap.playbackFrameCount == 2)
+        let vector = makeMovie(frameCount: 2, frames: [sample(alpha: 1, shapes: true), sample(alpha: 0)], images: [:])
+        #expect(vector.playbackFrameCount == 1)
+    }
+
+    /// 精灵帧数组比影片短时，缺掉的尾帧不算内容，不能沿用末帧状态把它们留在播放里。
+    @Test func framesMissingFromSpriteAreTrailingEmpty() {
+        let movie = makeMovie(frameCount: 4, frames: [sample(alpha: 1), sample(alpha: 1)], images: ["img": Data([1])])
+        #expect(movie.playbackFrameCount == 2)
+    }
+
+    /// 每一帧都不可绘制时保留声明帧数；音频结束帧会把已经裁掉的视觉尾部加回来。
+    @Test func fullyEmptyMovieAndAudioTailStayPlayable() {
+        let empty = makeMovie(frameCount: 4, frames: [sample(alpha: 0), sample(alpha: 0), sample(alpha: 0), sample(alpha: 0)],
+                              images: ["img": Data([1])])
+        #expect(empty.playbackFrameCount == 4)
+        let voiced = makeMovie(frameCount: 6, frames: [sample(alpha: 1), sample(alpha: 0), sample(alpha: 0),
+                                                       sample(alpha: 0), sample(alpha: 0), sample(alpha: 0)],
+                               images: ["img": Data([1])],
+                               audio: [SVGAAudioClip(key: "a", startFrame: 0, endFrame: 4, startTimeMilliseconds: 0)])
+        #expect(voiced.playbackFrameCount == 5)
+    }
+
+    /// 自然播放在最后一帧有效内容结束；手动 seek 到空帧后，下一次推进从播放区间起点重新计轮。
+    @Test func timelineStopsBeforeTrailingEmptyFrames() {
+        var timeline = PlaybackTimeline(frameCount: 10, frameRate: 20, playbackFrameCount: 8)
+        let stillInside = timeline.advance(seconds: 7.9 / 20, loop: .finite(1))
+        #expect(!stillInside)
+        #expect(timeline.frame == 7)
+        let finished = timeline.advance(seconds: 0.2 / 20, loop: .finite(1))
+        #expect(finished)
+        #expect(timeline.frame == 7)
+        #expect(timeline.snapshot().progress == 1)
+
+        var seeked = PlaybackTimeline(frameCount: 10, frameRate: 20, playbackFrameCount: 8)
+        seeked.seek(frame: 9)
+        #expect(seeked.frame == 9)
+        let wrapped = seeked.advance(seconds: 0.01, loop: .infinite)
+        #expect(!wrapped)
+        #expect(seeked.completedIterations == 1)
+        #expect(seeked.frame == 0)
+    }
+
+    /// 组装只含帧可见性的影片；画布和帧率不参与空帧判断。
+    private func makeMovie(frameCount: Int, key: String = "img", frames: [SpriteFrame],
+                           images: [String: Data] = ["img": Data([1])], audio: [SVGAAudioClip] = []) -> SVGAMovie {
+        SVGAMovie(identity: "empty-frame", version: "2.0", size: CGSize(width: 8, height: 8),
+                  frameRate: 20, frameCount: frameCount,
+                  sprites: [SVGASprite(key: key, matteKey: nil, frames: frames)],
+                  images: images, audioClips: audio, audioData: [:], modelBytes: 0)
+    }
+
+    /// 单帧样本。shapes 为真时放一条路径，用来区分“有矢量”和“只有透明位图槽位”。
+    private func sample(alpha: Double, shapes: Bool = false) -> SpriteFrame {
+        let geometry = shapes ? [MovieShape(geometry: .path("M0 0"), transform: MovieTransform(),
+                                            style: ShapeStyle(fill: nil, stroke: nil))] : []
+        return SpriteFrame(alpha: alpha, layout: MovieRect(width: 1, height: 1), transform: MovieTransform(),
+                           clipPath: "", shapes: geometry)
     }
 }

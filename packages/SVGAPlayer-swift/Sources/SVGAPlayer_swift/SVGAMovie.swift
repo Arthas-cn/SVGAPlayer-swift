@@ -26,8 +26,44 @@ public final class SVGAMovie: Sendable {
 
     /// 源时间轴总秒数，不随循环设置变化。
     public var duration: Double { Double(frameCount) / frameRate }
+    /// 默认播放帧数。尾部连续空帧不计入；全片都空，或音频结束帧仍落在尾部时，保持源帧数。
+    /// 证据：SVGAPlayer-Lite `SVGAPlayer.effectivePlaybackRange`。动态替换不重算，安装时按影片自身资源确定。
+    public var playbackFrameCount: Int {
+        guard frameCount > 0 else { return 0 }
+        var lastMeaningful = lastFrameIndexWithRenderableContent()
+        // 整段都没有可绘制内容时保留声明长度，避免空素材被收成零帧。
+        if lastMeaningful < 0 { lastMeaningful = frameCount - 1 }
+        // 音频结束帧也占着时间轴；视觉上为空的尾部只要还挂着这段音频就不能裁掉。
+        for clip in audioClips {
+            lastMeaningful = max(lastMeaningful, min(clip.endFrame, frameCount - 1))
+        }
+        return lastMeaningful + 1
+    }
     /// 真实精灵 key 的稳定去重目录，供内容替换使用。
     public var spriteKeys: [String] { Array(Set(sprites.map(\.key).filter { !$0.isEmpty })).sorted() }
+
+    /// 从最后一帧往前找仍可绘制的帧；每一帧都空时返回 -1。
+    private func lastFrameIndexWithRenderableContent() -> Int {
+        for index in stride(from: frameCount - 1, through: 0, by: -1) {
+            if sprites.contains(where: { spriteHasRenderableContent($0, at: index) }) { return index }
+        }
+        return -1
+    }
+
+    /// 该精灵在这一帧是否算可见内容。下标超出精灵帧数组时直接视为没有，不能套用渲染层停在末帧的钳制。
+    private func spriteHasRenderableContent(_ sprite: SVGASprite, at index: Int) -> Bool {
+        guard sprite.frames.indices.contains(index) else { return false }
+        return frameHasRenderableContent(sprite.frames[index], key: sprite.key)
+    }
+
+    /// 透明度不大于 0.001，或既没有矢量也没有对应位图时，这一帧对该精灵是空的。
+    private func frameHasRenderableContent(_ frame: SpriteFrame, key: String) -> Bool {
+        if frame.alpha <= 0.001 { return false }
+        if !frame.shapes.isEmpty { return true }
+        if key.isEmpty { return false }
+        let bitmapKey = (key as NSString).deletingPathExtension
+        return images[bitmapKey] != nil || images[key] != nil
+    }
 
     /// 仅解析层构建已验证的影片；调用方通过 SVGALoader 获取。
     init(identity: String, version: String, size: CGSize, frameRate: Double, frameCount: Int,
