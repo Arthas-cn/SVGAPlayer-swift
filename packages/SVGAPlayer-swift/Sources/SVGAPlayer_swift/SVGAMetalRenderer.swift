@@ -89,6 +89,14 @@ final class MetalRenderer {
             let sprite = movie.sprites[index]
             if sprite.key.hasSuffix(".matte") { index += 1; continue } // 遮罩精灵不直接出现在最终画面。
             if let key = sprite.matteKey {
+                // 遮罩精灵不在影片里时，旧播放器不会把这组内容挂进图层树，也不能改成无遮罩直出。
+                guard masks[key] != nil else {
+                    index += 1
+                    while index < movie.sprites.count && movie.sprites[index].matteKey == key {
+                        index += 1
+                    }
+                    continue
+                }
                 main.endEncoding()
                 let group = try attachment("group")
                 let groupEncoder = try encoder(command, target: group, clear: true)
@@ -118,17 +126,16 @@ final class MetalRenderer {
         targetSize.x * targetSize.y * (attachments.count * 4 + (stencil == nil ? 0 : 1))
     }
 
-    /// 支持 matte 引用链，同时检测循环；引用不存在已在解析层报错。
+    /// 准备遮罩纹理。遮罩精灵缺失时留空，由绘制循环跳过对应内容；循环引用仍然失败。
     private func prepareMask(_ key: String, scene: MetalMovie, frame: Int, mapping: simd_float4x4,
                              content: [String: MetalContent], clips: [Int: any MTLTexture],
                              masks: inout [String: any MTLTexture], visiting: inout Set<String>,
                              command: any MTLCommandBuffer) throws {
         if masks[key] != nil { return }
-        guard visiting.insert(key).inserted,
-              let index = scene.movie.sprites.lastIndex(where: { $0.key == key }) else {
-            throw SVGAError.invalidData("循环或缺失 matte：\(key)")
-        }
+        guard visiting.insert(key).inserted else { throw SVGAError.invalidData("循环 matte：\(key)") }
         defer { visiting.remove(key) }
+        // 旧 draw 只按 imageKey 取 hostLayer；没有这个精灵就没有遮罩，不能据此拒绝整段影片。
+        guard let index = scene.movie.sprites.lastIndex(where: { $0.key == key }) else { return }
         var inputs = clips[index].map { [$0] } ?? []
         if let parent = scene.movie.sprites[index].matteKey {
             try prepareMask(parent, scene: scene, frame: frame, mapping: mapping, content: content,

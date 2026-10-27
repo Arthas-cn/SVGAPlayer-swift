@@ -77,6 +77,35 @@ struct SVGAPlaybackTests {
         #expect(await player.snapshot.movieIdentity == nil)
     }
 
+    /// 官方 Rocket.svga 引用了三个不存在的遮罩精灵；解析必须成功，且编码不能因缺失遮罩失败。
+    @Test func rocketWithDanglingMatteStillEncodes() async throws {
+        let rocket = URL(fileURLWithPath: #filePath)
+            .deletingLastPathComponent()
+            .deletingLastPathComponent()
+            .deletingLastPathComponent()
+            .deletingLastPathComponent()
+            .deletingLastPathComponent()
+            .appendingPathComponent("SVGAPlayer-swift-demo/SVGAPlayer-swift-demo/resoureces/Rocket.svga")
+        let movie = try await SVGALoader().load(from: rocket).movie
+        #expect(movie.sprites.contains { $0.matteKey == "matte_bTTCW1wT.matte" })
+        #expect(movie.sprites.contains { $0.key == "matte_bTTCW1wT.matte" } == false)
+        let context = try MetalContext.shared.get()
+        let scene = try await MetalMovie.prepare(movie, context: context)
+        let descriptor = MTLTextureDescriptor.texture2DDescriptor(pixelFormat: .bgra8Unorm,
+            width: 320, height: 180, mipmapped: false)
+        descriptor.usage = [.renderTarget, .shaderRead]
+        let target = try #require(context.device.makeTexture(descriptor: descriptor))
+        let submission = try MetalRenderer(context: context).encode(scene: scene, frame: 0, target: target,
+                                                                     mode: .aspectFit, scale: 1, content: [:])
+        let status = await withCheckedContinuation { continuation in
+            submission.commandBuffer.addCompletedHandler { command in
+                continuation.resume(returning: command.status == .completed)
+            }
+            submission.commandBuffer.commit()
+        }
+        #expect(status)
+    }
+
     /// 真实位图、矢量和 matte 样本能完成 Metal 命令；离屏测试不声明系统呈现或人工画面通过。
     @Test func realSamplesCompleteGPUCommands() async throws {
         let context = try MetalContext.shared.get()

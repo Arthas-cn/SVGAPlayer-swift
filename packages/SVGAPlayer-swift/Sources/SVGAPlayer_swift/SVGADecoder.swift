@@ -67,14 +67,9 @@ enum SVGADecoder {
                 return SpriteFrame(alpha: alpha, layout: layout, transform: transform,
                                    clipPath: source.clipPath, shapes: shapes)
             }
+            // Rocket.svga 会引用已不存在的遮罩精灵。旧 SVGAPlayer.draw 找不到 hostLayer 时不挂内容，解析不失败。
             return SVGASprite(key: sprite.imageKey, matteKey: sprite.matteKey.isEmpty ? nil : sprite.matteKey,
                               frames: frames)
-        }
-        let keys = Set(sprites.map(\.key))
-        for sprite in sprites {
-            if let matte = sprite.matteKey, !keys.contains(matte) {
-                throw SVGAError.invalidData("遮罩精灵不存在：\(matte)")
-            }
         }
         let clips = try proto.audios.map { audio -> SVGAAudioClip in
             guard audio.startFrame >= 0, audio.endFrame >= audio.startFrame,
