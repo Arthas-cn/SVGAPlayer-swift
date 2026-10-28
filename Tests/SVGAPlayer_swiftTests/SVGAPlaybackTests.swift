@@ -79,9 +79,8 @@ struct SVGAPlaybackTests {
 
     /// 官方 Rocket.svga 引用了三个不存在的遮罩精灵；解析必须成功，且编码不能因缺失遮罩失败。
     @Test func rocketWithDanglingMatteStillEncodes() async throws {
+        // 源文件在 Tests/SVGAPlayer_swiftTests。只退三级到仓库根；再多退会离开仓库，Rocket.svga 就找不到。
         let rocket = URL(fileURLWithPath: #filePath)
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
             .deletingLastPathComponent()
             .deletingLastPathComponent()
             .deletingLastPathComponent()

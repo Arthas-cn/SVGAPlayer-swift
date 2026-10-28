@@ -11,7 +11,7 @@
 - 行为与 `.svga` 证据：`/Users/arthas/shibo/iOSProject/SVGAPlayer-Lite`
 - 工程组织、Metal 宿主拆分、SwiftUI 接入方式可对照 `/Users/arthas/shibo/iOSProject/libpag-swift`。不要把它的 PAG 类型、`.pag` 布局或领域 skill 搬进本仓库
 
-仓库目前还没有库代码。创建时目录用小写：库放 `packages/svga-swift`，验证用的 demo 放 `app/svga-swift-demo`。不要建成 `Apps/`、`Packages/` 或 `Source/` 式的旧布局。
+库在仓库根，清单只有一份 `Package.swift`。源码、测试和 schema 使用 SPM 默认布局：`Sources/SVGAPlayer_swift`、`Tests/SVGAPlayer_swiftTests`、`Schema`（schema 不要放进 `Sources`）。验证用的 demo 在 `SVGAPlayer-swift-demo`。不要建名为 `packages` 或 `Packages` 的目录，也不要再加第二份 `Package.swift`。默认不区分大小写的磁盘上，这个目录名就是 SwiftPM 保留的 `Packages`，Xcode 会把其中的源码从导航器藏掉；只删一份清单或只改 `path` 仍然不会显示。
 
 以下 R1–R3、R8–R9 与技术栈始终遵守。R4–R7、R10–R11 按用户意图套用，不必用户重贴模板。
 
@@ -58,7 +58,7 @@ SwiftUI、UIKit、AppKit 都要能播。demo 用库的显示能力验证，不�
 ## R1 改动边界
 
 - 只改完成当前任务所需的代码，不顺手重构、不改无关行为。
-- 沿用已有模块划分、命名和模式。目录保持小写 `packages/`、`app/`。
+- 沿用已有模块划分、命名和模式。库保持仓库根的默认 SPM 布局（`Sources/`、`Tests/`、`Schema/`），demo 保持 `SVGAPlayer-swift-demo/`。不要新增 `packages/` 或 `Packages/`。
 - 不引入任务未要求的依赖或新框架。
 - 不编造仓库里不存在的类型、API、文件或配置。不凭记忆编造 `.svga` 二进制布局。
 - 未要求时不改工程配置、不提交 git、不推远程。
@@ -191,7 +191,7 @@ func finish(_ result: Result<Value, Error>, sequence: Int) {
 
 | 文件 | 软限制 | 硬限制 |
 | --- | --- | --- |
-| 生产代码（`packages/`、`app/`） | 700 行 | 1200 行 |
+| 生产代码（`Sources/`、`SVGAPlayer-swift-demo/`） | 700 行 | 1200 行 |
 | 测试代码（`*Tests.swift` 等） | 1000 行 | 1200 行 |
 
 - 生产代码接近 600 行、测试接近 900 行时按职责拆开，不要堆到软限制再拆。
@@ -205,23 +205,20 @@ func finish(_ result: Result<Value, Error>, sequence: Int) {
 
 ## R10 将本地 SPM 包接入 demo
 
-1. 确认 `packages/svga-swift/Package.swift` 声明了要使用的 library product，名称与工程中的 product 名一致。
-2. 将本地包及其 product 加入实际使用它的 target（当前应是 `app/svga-swift-demo`）。不能仅凭包文件夹出现在工程中，或仅新增 product 名称，就认为接入完成。
-3. 对每个使用该 product 的 target，检查其 `packageProductDependencies` 和 Frameworks 构建阶段均有对应引用。本地包路径必须是相对仓库的路径，不能提交只在本机绝对路径上可解析的引用。
+库就是仓库根本身，只有这一份 `Package.swift`。demo 工程在 `SVGAPlayer-swift-demo/`，本地包相对该工程目录是 `..`。
+
+1. 确认仓库根 `Package.swift` 声明了 library product `SVGAPlayer-swift`，名称与工程中的 product 名一致。
+2. 将仓库根这个本地包及其 product 加入 `SVGAPlayer-swift-demo` target。不能仅凭源码目录出现在仓库里，或仅新增 product 名称，就认为接入完成。
+3. 对每个使用该 product 的 target，检查其 `packageProductDependencies` 和 Frameworks 构建阶段均有对应引用。`XCLocalSwiftPackageReference` 的 `relativePath` 必须是 `..`。路径相对仓库，不能提交只在本机绝对路径上可解析的引用。不要把仓库根再做成 `PBXFileReference` 放进工程导航，否则工程会嵌套自己。
 4. 若 demo 源码目录是文件系统同步文件夹，检查包源码没有被直接纳入 App target 编译。
 5. 修改后检查工程文件语法、Xcode 的包解析，以及受影响 target 的构建。
 
-## R11 创建本地 SPM 包
+## R11 包的位置
 
-1. 按模块职责确定包名和 `packages/` 下的位置，确认目标目录尚不存在。库的默认位置是 `packages/svga-swift`。
-2. 在新目录中运行 `swift package init`。以 library 包为例，从仓库根目录执行：
+库已经在仓库根，使用 SPM 默认布局。不要再创建第二份包。
 
-   ```sh
-   mkdir -p packages/svga-swift
-   cd packages/svga-swift
-   swift package init --type library --name svga-swift --enable-swift-testing --disable-xctest
-   ```
-
-3. 不得手写或用脚本拼接初始 `Package.swift`、`Sources`、`Tests` 骨架。需要其他包类型时，使用 `swift package init --help` 确认并选择对应的 `--type`。
-4. 生成后按本文件技术栈调整清单：`swift-tools-version: 6.4`、iOS 26 与 macOS 26、`swiftLanguageModes: [.v6]`、库默认 `nonisolated`、Approachable Concurrency。将占位源码和测试替换为实际内容，遵守 R8。
-5. 运行 `swift package dump-package` 检查清单。适合在当前主机执行测试的包再运行 `swift test`。需要供 demo 使用时，按 R10 接入实际使用它的 target。
+1. 唯一清单是仓库根 `Package.swift`。源码在 `Sources/SVGAPlayer_swift`，测试在 `Tests/SVGAPlayer_swiftTests`（夹具随测试目录，清单里 `.copy("Fixtures")`），schema 在仓库根 `Schema`，不要放进 `Sources`。
+2. 不要新建名为 `packages` 或 `Packages` 的目录，也不要再加第二份 `Package.swift`。在默认不区分大小写的磁盘上，这个名字就是 SwiftPM 保留的 `Packages`，Xcode 会把其中的源码从导航器藏掉。只删一份清单或只改 `path` 仍然不会显示。
+3. 不要为了“初始化包”再跑 `swift package init` 盖掉现有清单。改 product、依赖或 `swiftSettings` 只改仓库根这一份。
+4. 清单保持：`swift-tools-version: 6.4`、iOS 26 与 macOS 26、`swiftLanguageModes: [.v6]`、库默认 `nonisolated`（`.defaultIsolation(nil)`）、Approachable Concurrency。依赖保持 SwiftProtobuf `exact: "1.39.0"`。
+5. 在仓库根运行 `swift package describe` 与 `swift test`，不要再加 `--package-path`。需要供 demo 使用时，按 R10 接入，相对路径是 `..`。

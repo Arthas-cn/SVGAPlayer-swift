@@ -6,9 +6,9 @@ Swift 6.4 / iOS 26 / macOS 26 的 SVGA 重写。库为 SPM product `SVGAPlayer-s
 
 ## 目录与数据流
 
-- `packages/SVGAPlayer-swift`：影片、解析缓存、播放控制、Metal 合成与平台宿主。
-- `packages/SVGAPlayer-swift/Schema`：官方 protobuf schema 与固定版本出处；生成类型为 internal。
-- `packages/SVGAPlayer-swift/Tests`：Swift Testing，夹具均来自真实 `.svga`，损坏测试明确使用截断或无效输入。
+- `Sources/SVGAPlayer_swift`：影片、解析缓存、播放控制、Metal 合成与平台宿主。
+- `Schema`：官方 protobuf schema 与固定版本出处；生成类型为 internal。放在仓库根，不放进 `Sources`。
+- `Tests/SVGAPlayer_swiftTests`：Swift Testing，夹具均来自真实 `.svga`，损坏测试明确使用截断或无效输入。
 - `SVGAPlayer-swift-demo`：现有 Xcode 工程，链接相对路径本地包；`resoureces` 保持原拼写和 133 份源文件。
 
 文件 → 分块读取与 SHA-256 → ZIP/zlib → SwiftProtobuf 或 1.x JSON → 不可变 `SVGAMovie` → 后台图片/几何/音频准备 → `SVGAPlayer` 时间轴 → Metal drawable。
@@ -66,8 +66,8 @@ JSON 的可选阶段字段缺失表示 `nil` / 尚未观测，不应解释成零
 ## 验证
 
 ```sh
-swift package --package-path packages/SVGAPlayer-swift dump-package
-swift test --package-path packages/SVGAPlayer-swift
+swift package describe
+swift test
 xcodebuild -project SVGAPlayer-swift-demo/SVGAPlayer-swift-demo.xcodeproj \
   -scheme SVGAPlayer-swift-demo -destination 'platform=macOS' \
   CODE_SIGNING_ALLOWED=NO build

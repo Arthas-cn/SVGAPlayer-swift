@@ -31,7 +31,7 @@
 | Swift | 6.4；Swift 6 语言模式 |
 | 系统 | iOS 26.0 或 macOS 26.0 及以上 |
 | 包管理 | Swift Package Manager |
-| 本地包目录 | `packages/SVGAPlayer-swift` |
+| 本地包目录 | 仓库根（`Package.swift`、`Sources/SVGAPlayer_swift`） |
 | Library product | `SVGAPlayer-swift` |
 | Swift 导入名 | `SVGAPlayer_swift` |
 | protobuf 依赖 | 官方 SwiftProtobuf 1.39.0，由 SPM 管理 |
@@ -624,7 +624,7 @@ ZIP64、加密、多卷 ZIP、其他 SVG 路径命令会明确失败。当前没
 
 ## 15. 验证与源码入口
 
-库测试：`swift test --package-path packages/SVGAPlayer-swift`。demo 的构建、运行与画面核对在 Xcode 完成。当前验证记录和真实截图见 [验证记录](docs/verification.md)。
+库测试在仓库根执行：`swift test`。demo 的构建、运行与画面核对在 Xcode 完成。当前验证记录和真实截图见 [验证记录](docs/verification.md)。
 
 查看实现时，从这些文件对应到功能：
 

@@ -7,7 +7,8 @@ struct SVGACorpusTests {
     /// 全量样本属于仓库 demo，独立分发 SPM 包时只运行包内真实夹具测试。
     private static var directory: URL {
         var root = URL(fileURLWithPath: #filePath).resolvingSymlinksInPath()
-        for _ in 0..<5 { root.deleteLastPathComponent() }
+        // 源文件在 Tests/SVGAPlayer_swiftTests。只退三级到仓库根；再多退会离开仓库，完整目录回归会被静默跳过。
+        for _ in 0..<3 { root.deleteLastPathComponent() }
         return root.appending(path: "SVGAPlayer-swift-demo/SVGAPlayer-swift-demo/resoureces")
     }
 

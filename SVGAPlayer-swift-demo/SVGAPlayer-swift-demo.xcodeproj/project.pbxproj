@@ -129,7 +129,7 @@
 			mainGroup = 000000000000000000000001;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				C9851CC0308B6B5B0063C6F1 /* XCLocalSwiftPackageReference "../packages/SVGAPlayer-swift" */,
+				C9851CC0308B6B5B0063C6F1 /* XCLocalSwiftPackageReference ".." */,
 			);
 			preferredProjectObjectVersion = 90;
 			productRefGroup = 000000000000000000000020 /* Products */;
@@ -399,16 +399,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		C9851CC0308B6B5B0063C6F1 /* XCLocalSwiftPackageReference "../packages/SVGAPlayer-swift" */ = {
+		C9851CC0308B6B5B0063C6F1 /* XCLocalSwiftPackageReference ".." */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = "../packages/SVGAPlayer-swift";
+			relativePath = "..";
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		C9851CBE308B6B5B0063C6F1 /* SVGAPlayer-swift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C9851CC0308B6B5B0063C6F1 /* XCLocalSwiftPackageReference "../packages/SVGAPlayer-swift" */;
+			package = C9851CC0308B6B5B0063C6F1 /* XCLocalSwiftPackageReference ".." */;
 			productName = "SVGAPlayer-swift";
 		};
 /* End XCSwiftPackageProductDependency section */
